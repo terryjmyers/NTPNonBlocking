@@ -12,18 +12,22 @@
 
 
  Example (kind of pseudocode...i.e. I didn't test this)
-	 #include <NTPNonBlocking.h>
-	 NTPNonBlocking NTP;
-	 void setup(void) {
-		//Setup Serial and wifi or whatever
-		NTP.init()
-	 }
-	  void loop(void) {
-		if (NTP.Handle() == false) Serial.println(NTP.ErrorMessage);
-		Serial.println(NTP.UnixTime);
-		delay(100);
-	 }
+#include <ESP8266WiFi.h>  
+#include <NTPNonBlocking.h>  
 
+NTPNonBlocking NTP;  
+
+void setup(void) {  
+  
+  //Connect to Serial and WiFi here....  
+  
+  NTP.init();    
+}  
+void loop(void) {  
+  if (NTP.Handle() == false) Serial.println(NTP.ErrorMessage);  
+  Serial.println(NTP.UnixTime);  
+  delay(100);  
+}  
 
 
 Bonus - My implementation of an internet Check function that I use as a pointer for _isInternetFunc
